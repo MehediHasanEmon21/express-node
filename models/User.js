@@ -1,12 +1,22 @@
-const users = [
-    {
-        name: 'Anisul',
-        age: 20
-    },
-    {
-        name: 'Islam',
-        age: 30
-    }
-]
+const mongoose = require("mongoose");
 
-module.exports = users;
+const userSchema = mongoose.Schema({
+  id: {
+    type: String,
+    reuire: true,
+  },
+  name: {
+    type: String,
+    reuire: true,
+  },
+  age: {
+    type: Number,
+    reuire: true,
+  },
+  createdOn: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+module.exports = mongoose.model("User", userSchema);
